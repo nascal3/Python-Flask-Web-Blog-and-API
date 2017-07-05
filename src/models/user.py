@@ -15,13 +15,13 @@ class User(object):
 
     @classmethod
     def get_by_email(cls, email):
-        data = Database.DATABASE.find_one(collection='users', query={'email': email})
-        if data is not None:
-            return cls(**data)
+        get_data = Database.find_one(collection='users', query={'email': email})
+        if get_data is not None:
+            return cls(**get_data)
 
     @classmethod
     def get_by_id(cls, _id):
-        data = Database.DATABASE.find_one(collection='users', query={'_id': _id})
+        data = Database.find_one(collection='users', query={'_id': _id})
         if data is not None:
             return cls(**data)
 
